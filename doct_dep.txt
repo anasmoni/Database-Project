@@ -1,0 +1,59 @@
+Allergist
+Anaesthesiologist / Anasthesiologist / Anesthesiologist
+Andrologist
+Cardiologist
+Cardiac Electrophysiologist
+Dermatologist
+Emergency Medicine / Emergency (ER) Doctors
+Endocrinologist
+Epidemiologist
+Family Medicine Physician
+Gastroenterologist
+Geriatrician
+Hyperbaric Physician
+Hematologist
+Hepatologist
+Immunologist
+Infectious Disease Specialist
+Intensivist
+Internal Medicine Specialist
+Maxillofacial Surgeon / Oral Surgeon
+Medical Geneticist
+Neonatologist
+Nephrologist
+Neurologist
+Neurosurgeon
+Nuclear Medicine Specialist
+Obstetrician/Gynecologist (OB/GYN)
+Occupational Medicine Specialist
+Oncologist
+Ophthalmologist
+Orthopedic Surgeon / Orthopedist
+Otolaryngologist (also ENT Specialist)
+Parasitologist
+Pathologist
+Perinatologist
+Periodontist
+Pediatrician
+Physiatrist
+Plastic Surgeon
+Psychiatrist
+Pulmonologist
+Radiologist
+Rheumatologist
+Sleep Doctor / Sleep Disorders Specialist
+Spinal Cord Injury Specialist
+Sports Medicine Specialist
+Surgeon
+Thoracic Surgeon
+Urologist
+Vascular Surgeon
+Veterinarian
+Audiologist
+Chiropractor
+Diagnostician
+Microbiologist
+Palliative care specialist
+Pharmacist
+Physiotherapist
+Podiatrist / Chiropodist
