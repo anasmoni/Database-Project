@@ -39,15 +39,16 @@ public class RcpController
     private Button profile;
 
 
-
     @FXML
     void profileAction(ActionEvent event)
     {
-
+        ShowUI.stage.setScene(ShowUI.Recp_Profile);
     }
+
 
     @FXML
     void patientAction(ActionEvent event){
+        ShowUI.stage.setScene(ShowUI.Patient);
     }
 
 
@@ -64,6 +65,9 @@ public class RcpController
         ShowUI.stage.setScene(ShowUI.scene1);
     }
 
+    void setMain(Main main) {
 
+        this.main = main;
+    }
 
 }

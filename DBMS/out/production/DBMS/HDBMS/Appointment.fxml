@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HDBMS.AppController">
+<AnchorPane prefHeight="400.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HDBMS.AppController">
    <children>
       <Label layoutX="210.0" text="Appointment">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Label>
-      <DatePicker fx:id="datep" layoutX="412.0" layoutY="63.0" onAction="#datepAction" promptText="Pick Date" />
-      <TextField fx:id="time" layoutX="414.0" layoutY="104.0" prefHeight="25.0" prefWidth="109.0" promptText="hh : mm  AM/PM" />
-      <TextField fx:id="pid" layoutX="113.0" layoutY="63.0" />
-      <TextField fx:id="dname" layoutX="113.0" layoutY="104.0" />
+      <DatePicker fx:id="datep" layoutX="415.0" layoutY="63.0" onAction="#datepAction" promptText="Current Date/Pick Date" />
+      <TextField fx:id="pid" layoutX="113.0" layoutY="63.0" promptText="PID" />
       <Label layoutX="142.0" layoutY="250.0" />
-      <Label layoutX="16.0" layoutY="67.0" text="Patient ID" />
-      <Label layoutX="16.0" layoutY="108.0" text="Doctor's Name" />
-      <Label layoutX="16.0" layoutY="156.0" text="Specialization" />
-      <Button fx:id="reset" layoutX="414.0" layoutY="152.0" mnemonicParsing="false" onAction="#resetAction" text="Reset" />
-      <TextField fx:id="deptname" layoutX="113.0" layoutY="152.0" />
+      <Label layoutX="21.0" layoutY="67.0" text="Patient ID" />
+      <Label layoutX="21.0" layoutY="222.0" text="Doctor's Name" />
+      <Label layoutX="21.0" layoutY="169.0" text="Specialization" />
+      <Button fx:id="reset" layoutX="415.0" layoutY="218.0" mnemonicParsing="false" onAction="#resetAction" text="Reset" />
       <Button layoutX="-78.0" layoutY="129.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="back" layoutX="469.0" layoutY="152.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
-      <Button fx:id="logout" layoutX="523.0" layoutY="152.0" mnemonicParsing="false" onAction="#logoutAction" text="LogOut" />
-      <Button fx:id="show" layoutX="116.0" layoutY="210.0" mnemonicParsing="false" onAction="#showAction" text="Show" />
-      <Button fx:id="appoint" layoutX="176.0" layoutY="210.0" mnemonicParsing="false" onAction="#appointAction" text="Appoint" />
+      <Button fx:id="back" layoutX="471.0" layoutY="218.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
+      <Button fx:id="logout" layoutX="519.0" layoutY="218.0" mnemonicParsing="false" onAction="#logoutAction" text="LogOut" />
+      <Button fx:id="show" layoutX="109.0" layoutY="293.0" mnemonicParsing="false" onAction="#showAction" text="Appointment Details" />
+      <Button fx:id="appoint" layoutX="252.0" layoutY="293.0" mnemonicParsing="false" onAction="#appointAction" text="Appoint" />
+      <Label layoutX="362.0" layoutY="67.0" text="Date" />
+      <Label layoutX="364.0" layoutY="117.0" text="Time" />
+      <ComboBox fx:id="spec" layoutX="113.0" layoutY="165.0" onAction="#specAction" prefWidth="150.0" promptText="Select" />
+      <TextField fx:id="hour" layoutX="415.0" layoutY="113.0" prefHeight="25.0" prefWidth="45.0" promptText="Hour" />
+      <TextField fx:id="miniute" layoutX="463.0" layoutY="113.0" prefHeight="25.0" prefWidth="56.0" promptText="MIniute" />
+      <ComboBox fx:id="timep" layoutX="523.0" layoutY="113.0" prefHeight="25.0" prefWidth="73.0" promptText="AM" />
+      <ComboBox fx:id="dname" layoutX="113.0" layoutY="218.0" onAction="#dnameAction" prefWidth="150.0" promptText="Select" />
+      <Label layoutX="109.0" layoutY="354.0" text="N.B:  Plaese First Select Specialization then Select Doctor..." />
+      <ComboBox fx:id="type" layoutX="416.0" layoutY="165.0" prefWidth="150.0" promptText="Select" />
+      <Label layoutX="364.0" layoutY="169.0" text="Type" />
+      <TextField fx:id="eid" layoutX="113.0" layoutY="113.0" promptText="EID" />
+      <Label layoutX="21.0" layoutY="121.0" text="Doctor _ID" />
+      <Button fx:id="update" layoutX="323.0" layoutY="293.0" mnemonicParsing="false" onAction="#updateAction" text="Update" />
    </children>
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minWidth="-Infinity" prefHeight="401.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HDBMS.PharmacyController">
+    <children>
+        <Label layoutX="269.0" text="Pharmacy">
+            <font>
+                <Font name="System Bold Italic" size="27.0" />
+            </font>
+        </Label>
+        <Button fx:id="logout" layoutX="526.0" layoutY="344.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="25.0" prefWidth="80.0" text="LogOut" />
+        <Button fx:id="extract" layoutX="66.0" layoutY="229.0" mnemonicParsing="false" onAction="#extractAction" text="Extract" />
+        <Button fx:id="view" layoutX="139.0" layoutY="229.0" mnemonicParsing="false" onAction="#viewAction" text="View" />
+      <Button fx:id="back" layoutX="526.0" layoutY="295.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
+      <Label layoutX="18.0" layoutY="70.0" text="Name" />
+      <TextField fx:id="name" layoutX="66.0" layoutY="66.0" promptText="Medicine/Product Name">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="price" layoutX="66.0" layoutY="118.0" promptText="Per Unit Price">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="units" layoutX="66.0" layoutY="173.0" promptText="No of Units to Extract">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Label layoutX="18.0" layoutY="122.0" text="Price" />
+      <Label layoutX="18.0" layoutY="177.0" text="Units" />
+      <Button fx:id="slip" layoutX="66.0" layoutY="283.0" mnemonicParsing="false" onAction="#slipAction" text="Get Slip" />
+      <Button fx:id="ref" layoutX="200.0" layoutY="229.0" mnemonicParsing="false" onAction="#resetAction" text="Reset" />
+    </children>
+</AnchorPane>

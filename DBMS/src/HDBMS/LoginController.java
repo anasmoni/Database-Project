@@ -37,24 +37,73 @@ public class LoginController
     private PasswordField password;
 
     @FXML
+    private TextField recover_email;
+
+    @FXML
+    private PasswordField email;
+
+    @FXML
     private Button reset;
 
     @FXML
-    private Button admin;
-
-
-    @FXML
-    private Button doctor;
+    private Button login;
 
     @FXML
-    private Button receptionist;
+    private Button recover;
 
     @FXML
-    private Button register;
+    private ComboBox log;
 
-    void warning(String s){
-         label.setText(s);
-         label.setOpacity(1.0);
+    private String proff;
+
+    public void init(){
+        log.getItems().addAll("Admin","Doctor","Receptionist","Cashier","Pathologist","Pharmacist");
+    }
+
+    boolean isOka(){
+
+        if(username.getText().isEmpty()==true){
+            ShowUI.ShowPop("Please Enter UserName.....","Oops!!");
+            return false;
+        }
+
+        if(password.getText().isEmpty()==true){
+
+            ShowUI.ShowPop("Please Enter Password.....","Oops!!");
+            return false;
+        }
+
+        if(check()==false){
+
+            ShowUI.ShowPop("Wrong Password or Username...","Oops!!");
+            return false;
+        }
+
+        ShowUI.UserName = username.getText();
+        ShowUI.PassWord = password.getText();
+
+        String sql = "SELECT E.EID, E.PROFESSION FROM EMPLOYEE E JOIN LOGIN L ON L.EID=E.EID WHERE L.USERNAME ='"+ username.getText() +
+                "' AND L.PASSWORD='" + password.getText() +"'";
+
+
+        try
+        {
+            Connection con = new DBMSConnection().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+                proff = rs.getString(2);
+                ShowUI.EID = rs.getString(1);
+            }
+
+            pst.close();
+            con.close();
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return true;
     }
 
    public boolean check(){
@@ -77,6 +126,7 @@ public class LoginController
 
                 }
             }
+            else ret=false;
 
             pst.close();
             con.close();
@@ -89,89 +139,143 @@ public class LoginController
     }
 
     @FXML
-    void adminAction(ActionEvent event)
-    {
-       // System.out.println(password.getText());
-//        String userName = userText.getText();
-//        String password = passwordText.getText();
-//        boolean success = new Users().validateLogin(userName, password);
-//        if (success)
-//        {
-//            // successful login
-//            try
-//            {
-//                main.showTable();
-//            } catch (Exception e)
-//            {
-//                e.printStackTrace();
-//            }
-//
-//        } else
-//        {
-//            // failed login
-//            Alert alert = new Alert(AlertType.ERROR);
-//            alert.setTitle("Incorrect Credentials");
-//            alert.setHeaderText("Incorrect Credentials");
-//            alert.setContentText("The username and password you provided is not correct.");
-//            alert.showAndWait();
-//        }
+    void loginAction(ActionEvent event) {
 
-    }
-
-    @FXML
-    void doctorAction(ActionEvent event){
-    }
-
-    @FXML
-    void receptionistAction(ActionEvent event){
-        //System.out.println(password.getText());
-
-        if(username.getText().isEmpty()==true){
-            warning("Please Enter UserName.....");
+        if(log.getValue()==null){
+            ShowUI.ShowPop("Please Select LogIn Type..... ", "Oops!!");
             return;
         }
 
-        if(password.getText().isEmpty()==true){
-            warning("Please Enter Password.....");
-            return;
+        String who = (String)log.getValue();
+        //"Admin","Doctor","Receptionist","Cashier","Clerk","Pathologist","Pharmacist");
+
+        if(who.equals("Admin")){
+
+            if(isOka()==false)return;
+
+            if(proff.equals("Admin")==false){
+                ShowUI.ShowPop("Invalid LogIn Atempt.....\nNot a Admin UserName-PassWord\n\n","Oops!!");
+                return;
+            }
+
+
+            ShowUI.stage.setScene(ShowUI.AdminHomeScene);
         }
+        else if(who.equals("Doctor")){
 
-        if(check()==false){
+            if(isOka()==false)return;
 
-           //System.out.println(password.getText());
-            warning("Wrong Password or Username...");
+            if(proff.equals("Doctor")==false){
+                ShowUI.ShowPop("Invalid LogIn Atempt.....\nNot a Doctor's UserName-PassWord\n\n","Oops!!");
+                return;
+            }
 
-            return;
+            ShowUI.stage.setScene(ShowUI.Doct_Home);
         }
+        else if(who.equals("Receptionist")) {
+
+            if (isOka() == false) return;
+
+            if (proff.equals("Receptionist") == false) {
+                ShowUI.ShowPop("Invalid LogIn Atempt.....\nNot a Receptionist's UserName-PassWord\n\n", "Oops!!");
+                return;
+            }
 
 
-        ShowUI.stage.setScene(ShowUI.scene2);
+            ShowUI.stage.setScene(ShowUI.scene2);
+        }
+        else if(who.equals("Cashier")){
 
+            if (isOka() == false) return;
+
+            if (proff.equals("Cashier") == false) {
+                ShowUI.ShowPop("Invalid LogIn Atempt.....\nNot a Cashier's UserName-PassWord\n\n", "Oops!!");
+                return;
+            }
+
+            ShowUI.stage.setScene(ShowUI.CashHome);
+        }
+        else if(who.equals("Pathologist")){
+
+            if (isOka() == false) return;
+
+            if (proff.equals("Pathologist") == false) {
+                ShowUI.ShowPop("Invalid LogIn Atempt.....\nNot a Pathologist's UserName-PassWord\n\n", "Oops!!");
+                return;
+            }
+
+            ShowUI.stage.setScene(ShowUI.PathoHome);
+        }
+        else{
+
+
+            if (isOka() == false) return;
+
+            if (proff.equals("Pharmacist") == false) {
+                ShowUI.ShowPop("Invalid LogIn Atempt.....\nNot a Pharmacist's UserName-PassWord\n\n", "Oops!!");
+                return;
+            }
+
+            ShowUI.stage.setScene(ShowUI.PhrmHome);
+        }
     }
 
     @FXML
-    void registerAction(ActionEvent event){
+    void recoverAction(ActionEvent event){
 
+        String e = recover_email.getText();
+        if( e.length()<=15 || e.substring(e.length()-10 , e.length()).equals("@gmail.com") == false ){
+            ShowUI.ShowPop("Please Enter A Valid Email...","Oops!!");
+            return;
+        }
+
+        String sql,U,P;
+        U=P="";
+        boolean yup=true;
+        sql = "SELECT USERNAME, PASSWORD FROM LOGIN L JOIN EMPLOYEE E ON L.EID=E.EID AND E.EMAIL = '" + e + "'";
+
+        try
+        {
+            Connection con = new DBMSConnection().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                U = rs.getString(1);
+                P = rs.getString(2);
+                yup=false;
+            }
+            pst.close();
+            con.close();
+        } catch (SQLException ee)
+        {
+            ee.printStackTrace();
+        }
+
+        if(yup){
+            ShowUI.ShowPop("No Such Email Found...","Oops!!");
+            return;
+        }
+
+        SendMail.sendit(e,U,P);
+
+        ShowUI.ShowPop("Your UserName-PassWord sent to your Email...","WAH!!");
     }
 
 
     @FXML
     void resetAction(ActionEvent event) {
-        username.setText(null);
-        password.setText(null);
-        label.setOpacity(0.0);
+        username.setText("");
+        password.setText("");
     }
 
     void setMain(Main main) {
 
         this.main = main;
 
-
+        init();
 
         ShowUI.stage.setScene(ShowUI.scene1);;
         ShowUI.stage.show();
-
-
     }
 
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="499.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HDBMS.AddNurseController">
+    <children>
+        <Label layoutX="195.0" text="Manage Nurses">
+            <font>
+                <Font name="System Bold Italic" size="27.0" />
+            </font></Label>
+        <TextField fx:id="eid" layoutX="81.0" layoutY="62.0" prefHeight="25.0" prefWidth="149.0" />
+        <TextField fx:id="name" layoutX="82.0" layoutY="107.0" />
+        <TextField fx:id="phone" layoutX="81.0" layoutY="200.0" />
+        <TextField fx:id="age" layoutX="81.0" layoutY="246.0" />
+        <TextField fx:id="sal" layoutX="479.0" layoutY="156.0" promptText="xxxxx TK" />
+        <TextField fx:id="address" layoutX="81.0" layoutY="156.0" />
+        <Label layoutX="24.0" layoutY="66.0" text="EID" />
+        <Label layoutX="24.0" layoutY="111.0" text="Name" />
+        <Label layoutX="24.0" layoutY="160.0" text="Address" />
+        <Label layoutX="24.0" layoutY="204.0" text="Phone" />
+        <Label layoutX="24.0" layoutY="250.0" text="Age" />
+        <Label layoutX="411.0" layoutY="160.0" text="Salary" />
+        <TextField fx:id="email" layoutX="479.0" layoutY="107.0" />
+        <Label layoutX="412.0" layoutY="66.0" text="Join_Date" />
+        <Label layoutX="412.0" layoutY="111.0" text="Email" />
+        <Button fx:id="view" layoutX="302.0" layoutY="107.0" mnemonicParsing="false" onAction="#viewAction" text="View" />
+        <Button fx:id="edit" layoutX="278.0" layoutY="200.0" mnemonicParsing="false" onAction="#editAction" text="Save Changes" />
+        <Button fx:id="pback" layoutX="307.0" layoutY="297.0" mnemonicParsing="false" onAction="#pbackAction" text="Back" />
+        <Button fx:id="signout" layoutX="300.0" layoutY="347.0" mnemonicParsing="false" onAction="#signoutAction" text="LogOut" />
+        <DatePicker fx:id="jdate" layoutX="478.0" layoutY="62.0" />
+        <Button fx:id="add" layoutX="305.0" layoutY="62.0" mnemonicParsing="false" onAction="#addAction" text="Add" />
+        <ComboBox fx:id="ntype" layoutX="81.0" layoutY="297.0" prefWidth="150.0" promptText="Select" />
+        <Label layoutX="21.0" layoutY="301.0" text="Speciality" />
+        <TextField fx:id="jtype" layoutX="479.0" layoutY="246.0" />
+        <Label layoutX="416.0" layoutY="250.0" text="Speciality" />
+        <ComboBox fx:id="dept" layoutX="81.0" layoutY="347.0" prefWidth="150.0" promptText="Select" />
+        <Label layoutX="14.0" layoutY="351.0" text="Department" />
+        <TextField fx:id="tdept" layoutX="479.0" layoutY="297.0" />
+        <Label layoutX="409.0" layoutY="301.0" text="Department" />
+        <Button fx:id="resetp" layoutX="305.0" layoutY="246.0" mnemonicParsing="false" onAction="#resetpAction" text="Reset" />
+      <TextField fx:id="degree" layoutX="479.0" layoutY="200.0" />
+      <Label layoutX="418.0" layoutY="204.0" text="Degree" />
+      <Button fx:id="delete" layoutX="297.0" layoutY="156.0" mnemonicParsing="false" onAction="#deleteAction" text="Delete" />
+    </children>
+</AnchorPane>
